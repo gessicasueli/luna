@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
    private void OnActionTriggered(InputAction.CallbackContext obj)
    {
-       if (obj.action.name.CompareTo(_gameControls.Gameplay.Move.name) != 0)
+       if (obj.action.name.CompareTo(_gameControls.Gameplay.Move.name) == 0)
        {
            _moveInput = obj.ReadValue<Vector2>();
        }
