@@ -1,5 +1,5 @@
 {
-    "name": "controls",
+    "name": "GameControls",
     "maps": [
         {
             "name": "Gameplay",
@@ -10,6 +10,14 @@
                     "type": "Value",
                     "id": "150cd592-0d48-4ae7-8dfc-f121b4cc1237",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "a7b38924-865f-4753-8135-be0b9149e193",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -124,6 +132,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cb9f2b4f-464b-4a2a-a7d9-d2e67976eed8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "teclado",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
