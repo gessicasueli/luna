@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
-{
+{ 
+    public int coins = 0;
    private GameControls _gameControls;
    private PlayerInput _playerInput;
    private Camera _mainCamera;
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
        Vector3 camForward = _mainCamera.transform.forward; 
        Vector3 camRight = _mainCamera.transform.right;
        camForward.y = 0;
-       camRight.x = 0;
+       camRight.y = 0;
        
        _rigidbody.AddForce((camForward * _moveInput.y + camRight * _moveInput.x)* moveMultiplier * Time.fixedDeltaTime);
    }
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
        
        if (Mathf.Abs(velocity.z) > maxVelocity) velocity.z = Mathf.Sign(velocity.z) * maxVelocity;
        
-       //velocity.z = Mathf.Clamp(value: velocity.z , min: - maxVelocity, maxVelocity);
+       // velocity.z = Mathf.Clamp(value: velocity.z , min: - maxVelocity, maxVelocity);
 
        _rigidbody.velocity = velocity; 
    }
@@ -115,5 +116,14 @@ public class PlayerController : MonoBehaviour
    private void OnDrawGizmos()
    {
        Debug.DrawRay(start: transform.position, dir: Vector3.down * rayDistance, Color.yellow);
+   }
+
+   private void OnTriggerEnter(Collider other)
+   {
+       if (other.CompareTag("coin"))
+       {
+           coins++;
+           Destroy(other.gameObject);
+       }
    }
 }
